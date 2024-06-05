@@ -177,14 +177,7 @@ canvas.create_text(
 #     font=("Inter", 13 * -1)
 # )
 
-canvas.create_text(
-    443.0,
-    717.0,
-    anchor="nw",
-    text="ESTADO",
-    fill="#000000",
-    font=("Inter", 13 * -1)
-)
+
 
 canvas.create_text(
     384.0,
@@ -656,19 +649,20 @@ entry_bg_11 = canvas.create_image(
 #ENTRADA ESTADO
 # entrada_msj_estado=tk.StringVar()
 
-entrada_msj_estad = Text(
+entrada_msj_estad = tk.Label(
     bd=0,
     bg="#FFFFFF",
     fg="#000716",
-    highlightthickness=0,
-    # textvariable=entrada_msj_estado
+    text="",
+    anchor="w",
+    justify="left"
 )
-entrada_msj_estad.config(state=tk.DISABLED)
+
 
 entrada_msj_estad.place(
     x=518.0,
-    y=713.0,
-    width=170.0,
+    y=700.0,
+    width=470.0,
     height=21.0
 )
 
@@ -695,7 +689,7 @@ entrada_msj_recib.config(state=tk.DISABLED)
 entrada_msj_recib.place(
     x=518.0,
     y=756.0,
-    width=170.0,
+    width=370.0,
     height=21.0
 )
 
@@ -1329,8 +1323,12 @@ def btn_enviar():
 
     trama = protocolo.crear_trama(delim_inicial,cof,fin, sol,ctr,per,num,data,delimitador_final)
     mensaje = protocolo.enviar_trama(trama)
-    mostar_msj_sec_tramas(mensaje)
-    print("El mensaje es: ", mensaje)
+    mostar_msj_sec_tramas(mensaje[0])
+    leer_campo_head1_recep(mensaje[2][0])
+    leer_campo_head2_recep(mensaje[2][1])
+    leer_campo_info_recep(mensaje[2][2])
+    leer_campo_trailer_recep(mensaje[2][3])
+    mostar_msj_estado(mensaje[1])
 
 
 ###FUNCIONALIDADES BOTON RESPONDER###
@@ -1349,19 +1347,11 @@ def btn_responder():
     trama = protocolo.crear_trama(delimitador_inicial,cof,fin,sol,ctr,per,num,data,delimitador_final)
     mensaje = protocolo.responder_trama(trama)
     print("Tramas recibidas: ", protocolo.tramas_recibidas)
-    mostar_msj_sec_tramas(mensaje)
+    mostar_msj_sec_tramas(mensaje[0])
 
-    print("Delimitador inicial: ", delimitador_inicial)
-    print("COF: ", cof)
-    print("Tipo FIN: ", type(fin))
-    print("Tipo SOL: ", type(sol))
-    print("Tipo CTR: ", type(ctr))
-    print("Tipo PER: ", type(per))
-    print("Tipo NUM: ", type(num))
-    print("Data: ", data)
-    print("Delimitador final: ", delimitador_final)
+    mostar_msj_recibido(protocolo.mensaje_recibido)
 
-
+    mostar_msj_estado(mensaje[1])
       
 
 
@@ -1422,7 +1412,6 @@ def leer_campo_per_trans():#campo de texto donde se pone el numero PER
 
 def leer_campo_num_trans():#campo de texto donde se pone el numero NUM
     contenido = entry_var_num.get()
-    print(contenido)
     return int(contenido)
 
 ###########################SECCION RECEPTOR#######################
@@ -1431,27 +1420,27 @@ def leer_campo_num_trans():#campo de texto donde se pone el numero NUM
 #dato es la variable que viene desde la logica
 def leer_campo_head1_recep(dato):
     entrada_header1_recep.config(state=tk.NORMAL)
+    entrada_header1_recep.delete(1.0, tk.END)
     contenido=entrada_header1_recep.insert(tk.END,dato)
     entrada_header1_recep.config(state=tk.DISABLED)
-    print(contenido)
   
 def leer_campo_head2_recep(dato):
     entrada_header2_recep.config(state=tk.NORMAL)
-    # msj="como fue?"
+    entrada_header2_recep.delete(1.0, tk.END)
     contenido=entrada_header2_recep.insert(tk.END,dato)
     entrada_header2_recep.config(state=tk.DISABLED)
-    print(contenido)
+
 
 def leer_campo_info_recep(dato):
     entrada_info_receptor.config(state=tk.NORMAL)
-    # msj="hola rey"
+    entrada_info_receptor.delete(1.0, tk.END)
     contenido=entrada_info_receptor.insert(tk.END,dato)
     entrada_info_receptor.config(state=tk.DISABLED)
     print(contenido)
     
 def leer_campo_trailer_recep(dato):
     entrada_trailer_receptor.config(state=tk.NORMAL)
-    # msj="hola moor"
+    entrada_trailer_receptor.delete(1.0, tk.END)
     contenido=entrada_trailer_receptor.insert(tk.END,dato)
     entrada_trailer_receptor.config(state=tk.DISABLED)
     print(contenido)
@@ -1460,7 +1449,6 @@ def leer_campo_trailer_recep(dato):
 
 def leer_campo_delim_resp():
     contenido=entrada_delim_respu.get()
-    print(contenido)
     return contenido
     
 def leer_campo_cof_resp():
@@ -1550,26 +1538,14 @@ def leer_campo_delim2_resp():
 
 
 def mostar_msj_estado(mensaje):
-    # ESPERAR CONDICION
-    # if:
-    # mensaje="Exitoso" #poner por variable a mostrar
-    # contenido=entrada_msj_estado.set(mensaje)
-    # else
-    # mensaje="Fallido" #poner por variable a mostrar
-    # contenido=entrada_msj_estado.set(mensaje)
-    entrada_msj_estad.config(state=tk.NORMAL)
-    # mensaje="(TX) Control" #poner por variable a mostrar
-    contenido=entrada_msj_estad.insert(tk.END,mensaje+"\n")
-    entrada_msj_estad.config(state=tk.DISABLED)
-    print(contenido)
+    entrada_msj_estad.config(text=mensaje)
 
 def mostar_msj_recibido(mensaje):
     entrada_msj_recib.config(state=tk.NORMAL)
-    # mensaje="Hola moor" #poner por variable a mostrar
-    contenido=entrada_msj_recib.insert(tk.END,mensaje+"\n")
+    entrada_msj_recib.delete(1.0, tk.END)  # Limpiar el contenido previo
+    entrada_msj_recib.insert(tk.END, mensaje + "\n")  # Insertar el nuevo mensaje
     entrada_msj_recib.config(state=tk.DISABLED)
-    
-    print(contenido)
+
 
 window.resizable(False, False)
 window.mainloop()

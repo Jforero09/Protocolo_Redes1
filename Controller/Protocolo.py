@@ -49,22 +49,40 @@ class Protocolo:
 
     def enviar_trama(self, trama):
         if (trama == self.solicitud_permiso and len(self.tramas_enviadas) == 0):
-            print("Enviando solicitud de permiso")
             self.tramas_enviadas.append(trama)
             self.contador_tramas += 1
             mensaje = "Trama " + str(self.contador_tramas) + ": (TX) \nControl, solicitud permiso para transmitir"
-            return mensaje
+            mensaje2 = "SEMÁNTICA: TRAMA DE CONTROL, TRAMA SOLICITUD PERMISO PARA TRANSMITIR"
+            trama_recibida = []
+            mensajes = []
+            mensajes.append(mensaje)
+            mensajes.append(mensaje2)
+            trama_recibida.append(trama['delimitador_inicial'])
+            trama_recibida.append(str(trama['cof']) + str(trama['fin'])+ str(trama['sol']) + str(trama['ctr']) + str(trama['per']) + str(trama['num']))
+            trama_recibida.append(trama['data'])
+            trama_recibida.append(trama['delimitador_final'])
+            mensajes.append(trama_recibida)
+            return mensajes
         if (len(self.tramas_recibidas) > 0 and
             self.tramas_recibidas[0] == self.permiso_concedido and
             trama['cof'] == 0 and trama['sol'] == 0 and
             trama['ctr'] == 0 and trama['per'] == 0 and trama['fin'] == 0 and
             trama['data'] == self.mensaje_transmitir[trama['num']-1] and
             trama['num'] == 1):
-            print("Enviando trama de datos después de recibir el permiso")
             self.tramas_enviadas.append(trama)
             self.contador_tramas += 1
             mensaje = "Trama " + str(self.contador_tramas) + ": (TX) \nDatos, Trama " + str(self.contador_trama_datos)
-            return mensaje
+            mensaje2 = "SEMÁNTICA: TRAMA DE DATOS, TRAMA ENVIADA CON ÉXITO"
+            trama_recibida = []
+            mensajes = []
+            mensajes.append(mensaje)
+            mensajes.append(mensaje2)
+            trama_recibida.append(trama['delimitador_inicial'])
+            trama_recibida.append(str(trama['cof']) + str(trama['fin']) + str(trama['sol']) + str(trama['ctr']) + str(trama['per']) + str(trama['num']))
+            trama_recibida.append(trama['data'])
+            trama_recibida.append(trama['delimitador_final'])
+            mensajes.append(trama_recibida)
+            return mensajes
         if (len(self.tramas_enviadas) > 0 and
             self.tramas_enviadas[0] == self.solicitud_permiso and
             trama['cof'] == 0 and trama['sol'] == 0 and trama['ctr'] == 0 and trama['per'] == 0 and trama['fin'] == 0 and
@@ -73,11 +91,20 @@ class Protocolo:
             trama['num'] > 1 and
             self.tramas_recibidas[-1]['cof'] == 1 and self.tramas_recibidas[-1]['ctr'] == 1 and
             self.tramas_recibidas[-1]['data'] == self.tramas_enviadas[-1]['data']):
-            print("Enviando trama de datos secuenciales")
             self.tramas_enviadas.append(trama)
             self.contador_tramas += 1
             mensaje = "Trama " + str(self.contador_tramas) + ": (TX) \nDatos, Trama " + str(self.contador_trama_datos)
-            return mensaje
+            mensaje2 = "SEMÁNTICA: TRAMA DE DATOS, TRAMA ENVIADA CON ÉXITO"
+            trama_recibida = []
+            mensajes = []
+            mensajes.append(mensaje)
+            mensajes.append(mensaje2)
+            trama_recibida.append(trama['delimitador_inicial'])
+            trama_recibida.append(str(trama['cof']) + str(trama['fin']) + str(trama['sol']) + str(trama['ctr']) + str(trama['per']) + str(trama['num']))
+            trama_recibida.append(trama['data'])
+            trama_recibida.append(trama['delimitador_final'])
+            mensajes.append(trama_recibida)
+            return mensajes
         if (len(self.tramas_enviadas) > 0 and trama['cof'] == 0 and trama['sol'] == 0 and trama['ctr'] == 0 and trama['per'] == 0 and
             trama['fin'] == 1 and
             trama['data'] == self.mensaje_transmitir[trama['num'] - 1] and
@@ -87,7 +114,17 @@ class Protocolo:
             self.tramas_enviadas.append(trama)
             self.contador_tramas += 1
             mensaje = "Trama " + str(self.contador_tramas) + ": (TX) \nDatos, Trama " + str(self.contador_trama_datos)
-            return mensaje
+            mensaje2 = "SEMÁNTICA: TRAMA DE DATOS, TRAMA ENVIADA CON ÉXITO"
+            trama_recibida = []
+            mensajes = []
+            mensajes.append(mensaje)
+            mensajes.append(mensaje2)
+            trama_recibida.append(trama['delimitador_inicial'])
+            trama_recibida.append(str(trama['cof']) + str(trama['fin']) + str(trama['sol']) + str(trama['ctr']) + str(trama['per']) + str(trama['num']))
+            trama_recibida.append(trama['data'])
+            trama_recibida.append(trama['delimitador_final'])
+            mensajes.append(trama_recibida)
+            return mensajes
         if (
             len(self.tramas_enviadas) > 0 and
             trama['fin'] == 1 and trama['ctr'] == 1 and
@@ -97,16 +134,30 @@ class Protocolo:
             self.tramas_enviadas.append(trama)
             self.contador_tramas += 1
             mensaje = "Trama " + str(self.contador_tramas) + ": (TX) \nControl, solicitud para dejar de transmitir"
-            return mensaje
-        return "Trama incorrecta, Por favor revisar"
+            mensaje2 = "SEMÁNTICA: TRAMA DE CONTROL, TRAMA SOLICITUD FINALIZACION TRANSMISION"
+            mensajes = []
+            trama_recibida = []
+            mensajes.append(mensaje)
+            mensajes.append(mensaje2)
+            trama_recibida.append(trama['delimitador_inicial'])
+            trama_recibida.append(str(trama['cof']) + str(trama['fin']) + str(trama['sol']) + str(trama['ctr']) + str(trama['per']) + str(trama['num']))
+            trama_recibida.append(trama['data'])
+            trama_recibida.append(trama['delimitador_final'])
+            mensajes.append(trama_recibida)
+            return mensajes
+        return ["Trama incorrecta, Por favor revisar"]
 
     def responder_trama(self, trama):
         count = 1
-        if len(self.tramas_enviadas) > 0 and trama == self.permiso_concedido and self.tramas_enviadas[0] == self.solicitud_permiso:
+        if len(self.tramas_enviadas) > 0 and trama == self.permiso_concedido and self.tramas_enviadas[0] == self.solicitud_permiso and len(self.tramas_recibidas) == 0:
             self.tramas_recibidas.append(trama)
             self.contador_tramas += 1
             mensaje = "Trama " + str(self.contador_tramas) + ": (RX) \nControl, listo para recibir"
-            return mensaje
+            mensaje2 = "SEMÁNTICA: TRAMA DE CONTROL, TRAMA CONSESIÓN PERMISO TRANSMITIR"
+            mensajes = []
+            mensajes.append(mensaje)
+            mensajes.append(mensaje2)
+            return mensajes
         if (len(self.tramas_enviadas) > 0 and  trama['cof'] == 1 and trama['ctr'] == 1 and
             trama['fin'] == self.tramas_enviadas[-1]['fin'] and
             (trama['sol'], trama['per']) == (0, 0) and
@@ -119,7 +170,11 @@ class Protocolo:
             mensaje = "Trama " + str(self.contador_tramas) + ": (RX) \nControl, Trama " + str(
             self.contador_trama_datos) + " recibida con exito"
             self.contador_trama_datos += 1
-            return mensaje
+            mensaje2 = "SEMÁNTICA: TRAMA DE CONTROL, TRAMA RECIBIDA CON ÉXITO"
+            mensajes = []
+            mensajes.append(mensaje)
+            mensajes.append(mensaje2)
+            return mensajes
         if (
             len(self.tramas_enviadas) > 0 and
             trama['cof'] == 1 and trama['ctr'] == 1 and
@@ -132,13 +187,17 @@ class Protocolo:
             self.tramas_recibidas.append(trama)
             self.contador_tramas += 1
             mensaje = "Trama " + str(self.contador_tramas) + ": (RX) \nControl, comunicacion finalizada"
+            mensaje2 = "SEMÁNTICA: TRAMA DE CONTROL, COMUNICACIÓN FINALIZADA CON ÉXITO"
+            mensajes = []
+            mensajes.append(mensaje)
+            mensajes.append(mensaje2)
             self.tramas_enviadas = []
             self.tramas_recibidas = []
             self.mensaje_recibido = []
             self.mensaje_transmitir = []
             self.mensaje_recibido = ''
-            return mensaje
-        return "Trama incorrecta, Por favor revisar"
+            return mensajes
+        return ["Trama incorrecta, Por favor revisar"]
 
     def dividir_cadena(self, cadena, num_partes):
         partes = cadena.split()
