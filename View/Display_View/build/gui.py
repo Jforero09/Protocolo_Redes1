@@ -6,6 +6,7 @@
 
 from pathlib import Path
 
+from Controller.Protocolo import Protocolo
 
 # from tkinter import *
 # Explicit imports to satisfy Flake8
@@ -14,9 +15,9 @@ from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
 import tkinter as tk
 
 OUTPUT_PATH = Path(__file__).parent
-ASSETS_PATH = OUTPUT_PATH / Path(r"C:\Users\Usuario\Desktop\Proyecto Redes 1\View\Display_View\build\assets\frame0")
+ASSETS_PATH = OUTPUT_PATH / Path(r"C:\Users\PC\Desktop\Protocolo_Redes1\View\Display_View\build\assets\frame0")
 
-
+protocolo = Protocolo()
 def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
 
@@ -554,6 +555,7 @@ entry_bg_7 = canvas.create_image(
 )
 #ENTRADA HEADER-1 RECEPTOR
 # entrada_header1_recept=tk.StringVar()
+
 
 entrada_header1_recep = Text(
     bd=0,
@@ -1204,7 +1206,9 @@ entry_bg_28 = canvas.create_image(
     image=entry_image_28
 )
 #ENTRADA SECUENCIA DE TRAMAS
+
 # entrada_sec_tramas=tk.Text()
+
 
 entrada_sec_tram = Text(
     bd=0,
@@ -1213,7 +1217,6 @@ entrada_sec_tram = Text(
     highlightthickness=0,
     # textvariable=entrada_sec_tramas,
     wrap=tk.WORD
-    
 )
 entrada_sec_tram.config(state=tk.DISABLED)
 
@@ -1309,39 +1312,56 @@ def agg_eliminar_uno_num():
 
 ###FUNCIONALIDADES BOTON ENVIAR###
 def btn_enviar():
-    leer_campo_mensaje()
-    leer_num_frames()
-    leer_campo_delim_trans()
-    leer_campo_cof_trans()
-    leer_campo_fin_trans()
-    leer_campo_sol_trans()
-    leer_campo_ctr_trans()
-    leer_campo_per_trans()
-    leer_campo_num_trans()
-    leer_campo_data_trans()
-    leer_campo_del2_trans()
-    leer_campo_head1_recep()
-    leer_campo_head2_recep() #No deben leerse con el boton, unicamente para pruebas
-    leer_campo_info_recep()
-    leer_campo_trailer_recep()
-    print("boton Enviar presionado")
+    mensaje_enviar = leer_campo_mensaje()
+    num_frames = leer_num_frames()
+
+    protocolo.mensaje_transmitir = protocolo.dividir_cadena(mensaje_enviar,num_frames)
+
+    delim_inicial = leer_campo_delim_trans()
+    cof = leer_campo_cof_trans()
+    fin = leer_campo_fin_trans()
+    sol = leer_campo_sol_trans()
+    ctr = leer_campo_ctr_trans()
+    per = leer_campo_per_trans()
+    num = leer_campo_num_trans()
+    data = leer_campo_data_trans()
+    delimitador_final = leer_campo_del2_trans()
+
+    trama = protocolo.crear_trama(delim_inicial,cof,fin, sol,ctr,per,num,data,delimitador_final)
+    mensaje = protocolo.enviar_trama(trama)
+    mostar_msj_sec_tramas(mensaje)
+    print("El mensaje es: ", mensaje)
+
 
 ###FUNCIONALIDADES BOTON RESPONDER###
 def btn_responder():
-    leer_campo_delim_resp()
-    leer_campo_cof_resp()
-    leer_campo_fin_resp()
-    leer_campo_sol_resp()
-    leer_campo_ctr_resp()
-    leer_campo_per_resp()
-    leer_campo_num_resp()
-    leer_campo_data_resp()
-    leer_campo_delim2_resp()
-    mostar_msj_sec_tramas() # mensaje que se muestra en la seccion tramas
-    mostar_msj_recibido()# mensaje que se muestra en el campo mensaje recibido
-    mostar_msj_estado()#mensaje que muestra el estado del envio 
-    # mostar_msj_sem_selecc()#mensaje que muestra la semantica seleccionada
-    print("boton Responder presionado")
+
+    delimitador_inicial = leer_campo_delim_resp()
+    cof = leer_campo_cof_resp()
+    fin = leer_campo_fin_resp()
+    sol = leer_campo_sol_resp()
+    ctr = leer_campo_ctr_resp()
+    per = leer_campo_per_resp()
+    num = leer_campo_num_resp()
+    data = leer_campo_data_resp()
+    delimitador_final = leer_campo_delim2_resp()
+
+    trama = protocolo.crear_trama(delimitador_inicial,cof,fin,sol,ctr,per,num,data,delimitador_final)
+    mensaje = protocolo.responder_trama(trama)
+    print("Tramas recibidas: ", protocolo.tramas_recibidas)
+    mostar_msj_sec_tramas(mensaje)
+
+    print("Delimitador inicial: ", delimitador_inicial)
+    print("COF: ", cof)
+    print("Tipo FIN: ", type(fin))
+    print("Tipo SOL: ", type(sol))
+    print("Tipo CTR: ", type(ctr))
+    print("Tipo PER: ", type(per))
+    print("Tipo NUM: ", type(num))
+    print("Data: ", data)
+    print("Delimitador final: ", delimitador_final)
+
+
       
 
 
@@ -1350,49 +1370,63 @@ def btn_responder():
 def leer_campo_mensaje():#campo de texto donde se escribe el mensaje
     contenido = entrada_mensaje.get()
     print(contenido)
+    return contenido
 
 def leer_num_frames():#campo donde se ecriben la cantidad de frames
     contenido = entrada_frames.get()
     print(contenido)
+    return int(contenido)
 
 
 def leer_campo_delim_trans():#campo de texto donde se escribe el delimitador-1 en transmisor
     contenido = entrada_del_trans.get()
     print(contenido)
+    return contenido
 
 def leer_campo_data_trans():
     contenido = entrada_data_transm.get()
     print(contenido)
+    return contenido
     
 def leer_campo_del2_trans():#campo de texto donde se escribe el delimitador-2 en transmisor
     contenido = entrada_del2_trans.get()
     print(contenido)
+    return contenido
+
+
 
 def leer_campo_cof_trans():#campo de texto donde se pone el numero COF
     contenido = entry_var.get()
     print(contenido)
+    return int(contenido)
 
 def leer_campo_fin_trans():#campo de texto donde se pone el numero FIN
     contenido = entry_var_fin.get()
     print(contenido)
+    return int(contenido)
 
 def leer_campo_sol_trans():#campo de texto donde se pone el numero SOL
     contenido = entry_var_sol.get()
     print(contenido)
+    return int(contenido)
     
 def leer_campo_ctr_trans():#campo de texto donde se pone el numero CTR
     contenido = entry_var_ctr.get()
     print(contenido)
+    return int(contenido)
     
 def leer_campo_per_trans():#campo de texto donde se pone el numero PER
     contenido = entry_var_per.get()
     print(contenido)
+    return int(contenido)
 
 def leer_campo_num_trans():#campo de texto donde se pone el numero NUM
     contenido = entry_var_num.get()
     print(contenido)
+    return int(contenido)
 
 ###########################SECCION RECEPTOR#######################
+
 
 #dato es la variable que viene desde la logica
 def leer_campo_head1_recep(dato):
@@ -1427,45 +1461,56 @@ def leer_campo_trailer_recep(dato):
 def leer_campo_delim_resp():
     contenido=entrada_delim_respu.get()
     print(contenido)
+    return contenido
     
 def leer_campo_cof_resp():
     contenido=entrada_cof_respu.get()
     print(contenido)
+    return int(contenido)
 
 def leer_campo_fin_resp():
     contenido=entrada_fin_respu.get()
     print(contenido)
+    return int(contenido)
 
 def leer_campo_sol_resp():
     contenido=entrada_sol_respu.get()
+    print(contenido)
+    return int(contenido)
+
+def mostar_msj_sec_tramas(mensaje):
+    entrada_sec_tram.config(state=tk.NORMAL)
+    # mensaje="(TX) Control, solicitud permiso para transmitir" #poner por variable a mostrar
+    contenido=entrada_sec_tram.insert(tk.END,mensaje+"\n")
+    entrada_sec_tram.config(state=tk.DISABLED)
     print(contenido)
 
 def leer_campo_ctr_resp():
     contenido=entrada_ctr_respu.get()
     print(contenido)
+    return int(contenido)
 
 def leer_campo_per_resp():
     contenido=entrada_per_respu.get()
     print(contenido)
+    return int(contenido)
 
 def leer_campo_num_resp():
     contenido=entrada_num_respu.get()
     print(contenido)
+    return int(contenido)
 
 def leer_campo_data_resp():
     contenido=entrada_data_respu.get()
     print(contenido)
+    return contenido
 
 def leer_campo_delim2_resp():
     contenido=entrada_delim2_respu.get()
     print(contenido)
+    return contenido
 ###########################SECCION RESPUESTA TRAMAS######################
-def mostar_msj_sec_tramas():
-    entrada_sec_tram.config(state=tk.NORMAL)
-    mensaje="(TX) Control, solicitud permiso para transmitir" #poner por variable a mostrar
-    contenido=entrada_sec_tram.insert(tk.END,mensaje+"\n")
-    entrada_sec_tram.config(state=tk.DISABLED)
-    print(contenido)
+
 ###########################SECCION RESULTADO FINAL#######################
 
 # def mostar_msj_sem_selecc():
@@ -1477,40 +1522,38 @@ def mostar_msj_sec_tramas():
 #     per=entry_var_per.get()
 #     num=entry_var_num.get()
     
+
 #     if  cof == numero:
-#         mensaje="COF" 
+#         mensaje="COF"
 #         contenido=entrada_sem_selecc.set(mensaje)
 #         return contenido
 #     elif fin == numero:
-#         mensaje="FIN" 
+#         mensaje="FIN"
 #         contenido=entrada_sem_selecc.set(mensaje)
 #         return contenido
 #     elif sol == numero:
-#         mensaje="SOL" 
+#         mensaje="SOL"
 #         contenido=entrada_sem_selecc.set(mensaje)
 #         return contenido
 #     elif ctr == numero:
-#         mensaje="CTR" 
+#         mensaje="CTR"
 #         contenido=entrada_sem_selecc.set(mensaje)
 #         return contenido
 #     elif per == numero:
-#         mensaje="PER" 
+#         mensaje="PER"
 #         contenido=entrada_sem_selecc.set(mensaje)
 #         return contenido
 #     elif num == numero:
-#         mensaje="NUM" 
+#         mensaje="NUM"
 #         contenido=entrada_sem_selecc.set(mensaje)
 #         return contenido
-    
-        
+
+
 def mostar_msj_estado(mensaje):
-    
     # ESPERAR CONDICION
     # if:
     # mensaje="Exitoso" #poner por variable a mostrar
     # contenido=entrada_msj_estado.set(mensaje)
-
-        
     # else
     # mensaje="Fallido" #poner por variable a mostrar
     # contenido=entrada_msj_estado.set(mensaje)
@@ -1527,8 +1570,6 @@ def mostar_msj_recibido(mensaje):
     entrada_msj_recib.config(state=tk.DISABLED)
     
     print(contenido)
-
-
 
 window.resizable(False, False)
 window.mainloop()
