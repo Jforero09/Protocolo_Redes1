@@ -22,7 +22,7 @@ def relative_to_assets(path: str) -> Path:
 
 
 window = Tk()
-
+#1920*1080
 window.geometry("1379x850")
 window.configure(bg = "#FFFFFF")
 
@@ -167,14 +167,14 @@ canvas.create_text(
     font=("Inter", 13 * -1)
 )
 
-canvas.create_text(
-    329.0,
-    679.0,
-    anchor="nw",
-    text="SEMANTICA SELECCIONADA",
-    fill="#000000",
-    font=("Inter", 13 * -1)
-)
+# canvas.create_text(
+#     329.0,
+#     679.0,
+#     anchor="nw",
+#     text="SEMANTICA SELECCIONADA",
+#     fill="#000000",
+#     font=("Inter", 13 * -1)
+# )
 
 canvas.create_text(
     443.0,
@@ -475,15 +475,17 @@ entry_bg_4 = canvas.create_image(
 )
 
 # ENTRADA HEADER-2 RECEPTOR
-entrada_header2_recept=tk.StringVar()
+# entrada_header2_recept=tk.StringVar()
 
-entrada_header2_recep = Entry(
+entrada_header2_recep = Text(
     bd=0,
     bg="#FFFFFF",
     fg="#000716",
     highlightthickness=0,
-    textvariable=entrada_header2_recept
+    # textvariable=entrada_header2_recept
 )
+entrada_header2_recep.config(state=tk.DISABLED)
+
 entrada_header2_recep.place(
     x=295.0,
     y=319.0,
@@ -499,15 +501,17 @@ entry_bg_5 = canvas.create_image(
     image=entry_image_5
 )
 #ENTRADA INFORMACION RECEPTOR
-entrada_info_recep=tk.StringVar()
+# entrada_info_recep=tk.StringVar()
 
-entrada_info_receptor = Entry(
+entrada_info_receptor = Text(
     bd=0,
     bg="#FFFFFF",
     fg="#000716",
     highlightthickness=0,
-    textvariable=entrada_info_recep
+    # textvariable=entrada_info_recep
 )
+entrada_info_receptor.config(state=tk.DISABLED)
+
 entrada_info_receptor.place(
     x=523.0,
     y=319.0,
@@ -523,15 +527,17 @@ entry_bg_6 = canvas.create_image(
     image=entry_image_6
 )
 #ENTRADA TRAILER RECEPTOR
-entrada_trailer_recep=tk.StringVar()
+# entrada_trailer_recep=tk.StringVar()
 
-entrada_trailer_receptor = Entry(
+entrada_trailer_receptor = Text(
     bd=0,
     bg="#FFFFFF",
     fg="#000716",
     highlightthickness=0,
-    textvariable=entrada_trailer_recep
+    # textvariable=entrada_trailer_recep
 )
+entrada_trailer_receptor.config(state=tk.DISABLED)
+
 entrada_trailer_receptor.place(
     x=751.0,
     y=319.0,
@@ -547,15 +553,17 @@ entry_bg_7 = canvas.create_image(
     image=entry_image_7
 )
 #ENTRADA HEADER-1 RECEPTOR
-entrada_header1_recept=tk.StringVar()
+# entrada_header1_recept=tk.StringVar()
 
-entrada_header1_recep = Entry(
+entrada_header1_recep = Text(
     bd=0,
     bg="#FFFFFF",
     fg="#000716",
     highlightthickness=0,
-    textvariable=entrada_header1_recept
+    # textvariable=entrada_header1_recept
 )
+entrada_header1_recep.config(state=tk.DISABLED)
+
 entrada_header1_recep.place(
     x=67.0,
     y=319.0,
@@ -612,29 +620,29 @@ entrada_data_resp.place(
     height=21.0
 )
 
-entry_image_10 = PhotoImage(
-    file=relative_to_assets("entry_10.png"))
-entry_bg_10 = canvas.create_image(
-    603.0,
-    686.5,
-    image=entry_image_10
-)
-#ENTRADA SEMANTICA SELLECIONADA
-entrada_sem_selecc=tk.StringVar()
+# entry_image_10 = PhotoImage(
+#     file=relative_to_assets("entry_10.png"))
+# entry_bg_10 = canvas.create_image(
+#     603.0,
+#     686.5,
+#     image=entry_image_10
+# )
+# #ENTRADA SEMANTICA SELLECIONADA
+# entrada_sem_selecc=tk.StringVar()
 
-entrada_semantica_selecc = Entry(
-    bd=0,
-    bg="#FFFFFF",
-    fg="#000716",
-    highlightthickness=0,
-    textvariable=entrada_sem_selecc
-)
-entrada_semantica_selecc.place(
-    x=518.0,
-    y=675.0,
-    width=170.0,
-    height=21.0
-)
+# entrada_semantica_selecc = Entry(
+#     bd=0,
+#     bg="#FFFFFF",
+#     fg="#000716",
+#     highlightthickness=0,
+#     textvariable=entrada_sem_selecc
+# )
+# entrada_semantica_selecc.place(
+#     x=518.0,
+#     y=675.0,
+#     width=170.0,
+#     height=21.0
+# )
 
 entry_image_11 = PhotoImage(
     file=relative_to_assets("entry_11.png"))
@@ -644,15 +652,17 @@ entry_bg_11 = canvas.create_image(
     image=entry_image_11
 )
 #ENTRADA ESTADO
-entrada_msj_estado=tk.StringVar()
+# entrada_msj_estado=tk.StringVar()
 
-entrada_msj_estad = Entry(
+entrada_msj_estad = Text(
     bd=0,
     bg="#FFFFFF",
     fg="#000716",
     highlightthickness=0,
-    textvariable=entrada_msj_estado
+    # textvariable=entrada_msj_estado
 )
+entrada_msj_estad.config(state=tk.DISABLED)
+
 entrada_msj_estad.place(
     x=518.0,
     y=713.0,
@@ -668,15 +678,18 @@ entry_bg_12 = canvas.create_image(
     image=entry_image_12
 )
 #ENTRADA MENSAJE RECIBIDO
-entrada_msj_recibido=tk.StringVar()
+#  entrada_msj_recibido=tk.StringVar()
 
-entrada_msj_recib = Entry(
+entrada_msj_recib = Text(
     bd=0,
     bg="#FFFFFF",
     fg="#000716",
     highlightthickness=0,
-    textvariable=entrada_msj_recibido
+    # textvariable=entrada_msj_recibido
 )
+entrada_msj_recib.config(state=tk.DISABLED)
+
+
 entrada_msj_recib.place(
     x=518.0,
     y=756.0,
@@ -1191,25 +1204,32 @@ entry_bg_28 = canvas.create_image(
     image=entry_image_28
 )
 #ENTRADA SECUENCIA DE TRAMAS
-entrada_sec_tramas=tk.StringVar()
+# entrada_sec_tramas=tk.Text()
 
-entrada_sec_tram = Entry(
+entrada_sec_tram = Text(
     bd=0,
     bg="#FFFFFF",
     fg="#000716",
     highlightthickness=0,
-    textvariable=entrada_sec_tramas
+    # textvariable=entrada_sec_tramas,
+    wrap=tk.WORD
+    
 )
+entrada_sec_tram.config(state=tk.DISABLED)
+
 entrada_sec_tram.place(
     x=1058.0,
     y=75.0,
     width=284.0,
-    height=739.0
+    height=739.0,
+    
 )
 #FUNCIONALIDADES BTN COF
 def btn_cof():
     agg_eliminar_uno()
     print("Boton COF presionado")
+   
+    
     
 def agg_eliminar_uno():
     contenido = entry_var.get()# Obtener el contenido del campo de texto
@@ -1217,6 +1237,7 @@ def agg_eliminar_uno():
         entry_var.set('') #borrar numero
     else:
         entry_var.set('1')
+        
     
 #FUNCIONALIDADES BTN FIN
 def btn_fin():
@@ -1299,10 +1320,10 @@ def btn_enviar():
     leer_campo_num_trans()
     leer_campo_data_trans()
     leer_campo_del2_trans()
-    # leer_campo_head1_recep()
-    # leer_campo_head2_recep() #No deben leerse con el boton, unicamente para pruebas
-    #leer_campo_info_recep()
-    # leer_campo_trailer_recep()
+    leer_campo_head1_recep()
+    leer_campo_head2_recep() #No deben leerse con el boton, unicamente para pruebas
+    leer_campo_info_recep()
+    leer_campo_trailer_recep()
     print("boton Enviar presionado")
 
 ###FUNCIONALIDADES BOTON RESPONDER###
@@ -1319,7 +1340,7 @@ def btn_responder():
     mostar_msj_sec_tramas() # mensaje que se muestra en la seccion tramas
     mostar_msj_recibido()# mensaje que se muestra en el campo mensaje recibido
     mostar_msj_estado()#mensaje que muestra el estado del envio 
-    mostar_msj_sem_selecc()#mensaje que muestra la semantica seleccionada
+    # mostar_msj_sem_selecc()#mensaje que muestra la semantica seleccionada
     print("boton Responder presionado")
       
 
@@ -1373,20 +1394,32 @@ def leer_campo_num_trans():#campo de texto donde se pone el numero NUM
 
 ###########################SECCION RECEPTOR#######################
 
-def leer_campo_head1_recep():
-    contenido=entrada_header1_recept.get()
+#dato es la variable que viene desde la logica
+def leer_campo_head1_recep(dato):
+    entrada_header1_recep.config(state=tk.NORMAL)
+    contenido=entrada_header1_recep.insert(tk.END,dato)
+    entrada_header1_recep.config(state=tk.DISABLED)
     print(contenido)
   
-def leer_campo_head2_recep():
-    contenido=entrada_header2_recept.get()
+def leer_campo_head2_recep(dato):
+    entrada_header2_recep.config(state=tk.NORMAL)
+    # msj="como fue?"
+    contenido=entrada_header2_recep.insert(tk.END,dato)
+    entrada_header2_recep.config(state=tk.DISABLED)
     print(contenido)
 
-def leer_campo_info_recep():
-    contenido=entrada_info_recep.get()
+def leer_campo_info_recep(dato):
+    entrada_info_receptor.config(state=tk.NORMAL)
+    # msj="hola rey"
+    contenido=entrada_info_receptor.insert(tk.END,dato)
+    entrada_info_receptor.config(state=tk.DISABLED)
     print(contenido)
     
-def leer_campo_trailer_recep():
-    contenido=entrada_trailer_recep.get()
+def leer_campo_trailer_recep(dato):
+    entrada_trailer_receptor.config(state=tk.NORMAL)
+    # msj="hola moor"
+    contenido=entrada_trailer_receptor.insert(tk.END,dato)
+    entrada_trailer_receptor.config(state=tk.DISABLED)
     print(contenido)
 
 ###########################SECCION RESPUESTA#######################
@@ -1428,57 +1461,49 @@ def leer_campo_delim2_resp():
     print(contenido)
 ###########################SECCION RESPUESTA TRAMAS######################
 def mostar_msj_sec_tramas():
-    mensaje="Hola" #poner por variable a mostrar
-    contenido=entrada_sec_tramas.set(mensaje)
+    entrada_sec_tram.config(state=tk.NORMAL)
+    mensaje="(TX) Control, solicitud permiso para transmitir" #poner por variable a mostrar
+    contenido=entrada_sec_tram.insert(tk.END,mensaje+"\n")
+    entrada_sec_tram.config(state=tk.DISABLED)
     print(contenido)
 ###########################SECCION RESULTADO FINAL#######################
 
-def mostar_msj_sem_selecc():
-    numero='1'
-    cof=entry_var.get()
-    fin=entry_var_fin.get()
-    sol=entry_var_sol.get()
-    ctr=entry_var_ctr.get()
-    per=entry_var_per.get()
-    num=entry_var_num.get()
+# def mostar_msj_sem_selecc():
+#     numero='1'
+#     cof=entry_var.get()
+#     fin=entry_var_fin.get()
+#     sol=entry_var_sol.get()
+#     ctr=entry_var_ctr.get()
+#     per=entry_var_per.get()
+#     num=entry_var_num.get()
     
-    if  cof == numero:
-        mensaje="COF" 
-        contenido=entrada_sem_selecc.set(mensaje)
-        return contenido
-    elif fin == numero:
-        mensaje="FIN" 
-        contenido=entrada_sem_selecc.set(mensaje)
-        return contenido
-    elif sol == numero:
-        mensaje="SOL" 
-        contenido=entrada_sem_selecc.set(mensaje)
-        return contenido
-    elif ctr == numero:
-        mensaje="CTR" 
-        contenido=entrada_sem_selecc.set(mensaje)
-        return contenido
-    elif per == numero:
-        mensaje="PER" 
-        contenido=entrada_sem_selecc.set(mensaje)
-        return contenido
-    elif num == numero:
-        mensaje="NUM" 
-        contenido=entrada_sem_selecc.set(mensaje)
-        return contenido
+#     if  cof == numero:
+#         mensaje="COF" 
+#         contenido=entrada_sem_selecc.set(mensaje)
+#         return contenido
+#     elif fin == numero:
+#         mensaje="FIN" 
+#         contenido=entrada_sem_selecc.set(mensaje)
+#         return contenido
+#     elif sol == numero:
+#         mensaje="SOL" 
+#         contenido=entrada_sem_selecc.set(mensaje)
+#         return contenido
+#     elif ctr == numero:
+#         mensaje="CTR" 
+#         contenido=entrada_sem_selecc.set(mensaje)
+#         return contenido
+#     elif per == numero:
+#         mensaje="PER" 
+#         contenido=entrada_sem_selecc.set(mensaje)
+#         return contenido
+#     elif num == numero:
+#         mensaje="NUM" 
+#         contenido=entrada_sem_selecc.set(mensaje)
+#         return contenido
     
         
-        
-        
-        
-    
-    
-    
-    
-    
-
-
-def mostar_msj_estado():
+def mostar_msj_estado(mensaje):
     
     # ESPERAR CONDICION
     # if:
@@ -1489,23 +1514,19 @@ def mostar_msj_estado():
     # else
     # mensaje="Fallido" #poner por variable a mostrar
     # contenido=entrada_msj_estado.set(mensaje)
+    entrada_msj_estad.config(state=tk.NORMAL)
+    # mensaje="(TX) Control" #poner por variable a mostrar
+    contenido=entrada_msj_estad.insert(tk.END,mensaje+"\n")
+    entrada_msj_estad.config(state=tk.DISABLED)
+    print(contenido)
+
+def mostar_msj_recibido(mensaje):
+    entrada_msj_recib.config(state=tk.NORMAL)
+    # mensaje="Hola moor" #poner por variable a mostrar
+    contenido=entrada_msj_recib.insert(tk.END,mensaje+"\n")
+    entrada_msj_recib.config(state=tk.DISABLED)
     
-    mensaje="Exitoso" #poner por variable a mostrar
-    contenido=entrada_msj_estado.set(mensaje)
     print(contenido)
-
-def mostar_msj_recibido():
-    mensaje="zaramambiche" #poner por variable a mostrar
-    contenido=entrada_msj_recibido.set(mensaje)
-    print(contenido)
-
-
-
-entrada_sem_selecc
-
-
-
-
 
 
 
