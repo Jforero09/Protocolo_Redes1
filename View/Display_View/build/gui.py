@@ -6,10 +6,12 @@
 
 from pathlib import Path
 
+
 # from tkinter import *
 # Explicit imports to satisfy Flake8
 from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
-
+# from Controller.Gui_Controller import btn_enviar
+import tkinter as tk
 
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path(r"C:\Users\Usuario\Desktop\Proyecto Redes 1\View\Display_View\build\assets\frame0")
@@ -397,13 +399,18 @@ entry_bg_1 = canvas.create_image(
     79.5,
     image=entry_image_1
 )
-entry_1 = Entry(
+
+#ENTRADA MENSAJE A TRANSIMITR
+entrada_mensaje = tk.StringVar()
+
+entrada_mensaje = Entry(
     bd=0,
     bg="#FFFFFF",
     fg="#000716",
-    highlightthickness=0
+    highlightthickness=0,
+    textvariable=entrada_mensaje
 )
-entry_1.place(
+entrada_mensaje.place(
     x=190.0,
     y=68.0,
     width=367.0,
@@ -417,13 +424,18 @@ entry_bg_2 = canvas.create_image(
     139.5,
     image=entry_image_2
 )
-entry_2 = Entry(
+
+#ENTRADA DELIMITADOR TRANSMISOR
+entrada_del_trans = tk.StringVar()
+
+entrada_delim_trans = Entry(
     bd=0,
     bg="#FFFFFF",
     fg="#000716",
-    highlightthickness=0
+    highlightthickness=0,
+    textvariable=entrada_del_trans
 )
-entry_2.place(
+entrada_delim_trans.place(
     x=43.0,
     y=128.0,
     width=170.0,
@@ -437,13 +449,14 @@ entry_bg_3 = canvas.create_image(
     527.5,
     image=entry_image_3
 )
-entry_3 = Entry(
+#ENTRADA DELIMITADOR RESPUESTA
+entrada_delim_resp = Entry(
     bd=0,
     bg="#FFFFFF",
     fg="#000716",
     highlightthickness=0
 )
-entry_3.place(
+entrada_delim_resp.place(
     x=138.0,
     y=516.0,
     width=170.0,
@@ -457,13 +470,15 @@ entry_bg_4 = canvas.create_image(
     330.5,
     image=entry_image_4
 )
-entry_4 = Entry(
+
+# ENTRADA HEADER-2 RECEPTOR
+entrada_header2_recep = Entry(
     bd=0,
     bg="#FFFFFF",
     fg="#000716",
     highlightthickness=0
 )
-entry_4.place(
+entrada_header2_recep.place(
     x=295.0,
     y=319.0,
     width=222.0,
@@ -477,13 +492,14 @@ entry_bg_5 = canvas.create_image(
     330.5,
     image=entry_image_5
 )
-entry_5 = Entry(
+#ENTRADA INFORMACION RECEPTOR
+entrada_info_receptor = Entry(
     bd=0,
     bg="#FFFFFF",
     fg="#000716",
     highlightthickness=0
 )
-entry_5.place(
+entrada_info_receptor.place(
     x=523.0,
     y=319.0,
     width=222.0,
@@ -497,13 +513,14 @@ entry_bg_6 = canvas.create_image(
     330.5,
     image=entry_image_6
 )
-entry_6 = Entry(
+#ENTRADA TRAILER RECEPTOR
+entrada_trailer_receptor = Entry(
     bd=0,
     bg="#FFFFFF",
     fg="#000716",
     highlightthickness=0
 )
-entry_6.place(
+entrada_trailer_receptor.place(
     x=751.0,
     y=319.0,
     width=222.0,
@@ -517,13 +534,14 @@ entry_bg_7 = canvas.create_image(
     330.5,
     image=entry_image_7
 )
-entry_7 = Entry(
+#ENTRADA HEADER-1 RECEPTOR
+entrada_header1_recep = Entry(
     bd=0,
     bg="#FFFFFF",
     fg="#000716",
     highlightthickness=0
 )
-entry_7.place(
+entrada_header1_recep.place(
     x=67.0,
     y=319.0,
     width=222.0,
@@ -537,13 +555,18 @@ entry_bg_8 = canvas.create_image(
     139.5,
     image=entry_image_8
 )
-entry_8 = Entry(
+#ENTRADA DATA TRANSMISOR
+
+entrada_data_transm = tk.StringVar()
+
+entrada_data_trans = Entry(
     bd=0,
     bg="#FFFFFF",
     fg="#000716",
-    highlightthickness=0
+    highlightthickness=0,
+    textvariable=entrada_data_transm
 )
-entry_8.place(
+entrada_data_trans.place(
     x=470.0,
     y=128.0,
     width=170.0,
@@ -557,6 +580,7 @@ entry_bg_9 = canvas.create_image(
     528.5,
     image=entry_image_9
 )
+#ENTRADA DATA RESPUESTA
 entry_9 = Entry(
     bd=0,
     bg="#FFFFFF",
@@ -577,6 +601,7 @@ entry_bg_10 = canvas.create_image(
     686.5,
     image=entry_image_10
 )
+#ENTRADA SEMANTICA SELLECIONADA
 entry_10 = Entry(
     bd=0,
     bg="#FFFFFF",
@@ -597,6 +622,7 @@ entry_bg_11 = canvas.create_image(
     724.5,
     image=entry_image_11
 )
+#ENTRADA ESTADO
 entry_11 = Entry(
     bd=0,
     bg="#FFFFFF",
@@ -617,6 +643,7 @@ entry_bg_12 = canvas.create_image(
     767.5,
     image=entry_image_12
 )
+#ENTRADA MENSAJE RECIBIDO
 entry_12 = Entry(
     bd=0,
     bg="#FFFFFF",
@@ -637,13 +664,17 @@ entry_bg_13 = canvas.create_image(
     139.5,
     image=entry_image_13
 )
-entry_13 = Entry(
+#ENTRADA DELIMITADOR-2 TRANSMISOR
+entrada_del2_trans=tk.StringVar()
+
+entrada_delim2_resp  = Entry(
     bd=0,
     bg="#FFFFFF",
     fg="#000716",
-    highlightthickness=0
+    highlightthickness=0,
+    textvariable=entrada_del2_trans
 )
-entry_13.place(
+entrada_delim2_resp .place(
     x=651.0,
     y=128.0,
     width=170.0,
@@ -657,6 +688,7 @@ entry_bg_14 = canvas.create_image(
     527.5,
     image=entry_image_14
 )
+#ENTRADA DELIMITADOR-2 RESPUESTA
 entry_14 = Entry(
     bd=0,
     bg="#FFFFFF",
@@ -677,13 +709,24 @@ entry_bg_15 = canvas.create_image(
     139.5,
     image=entry_image_15
 )
-entry_15 = Entry(
+
+#LECTURA DE CAMPOS COF,FIN,SOL,CTR,PER Y NUM
+entry_var = tk.StringVar()
+entry_var_fin=tk.StringVar()
+entry_var_sol=tk.StringVar()
+entry_var_ctr=tk.StringVar()
+entry_var_per=tk.StringVar()
+entry_var_num=tk.StringVar()
+
+#ENTRADA COF TRANSMISOR
+entrada_cof = Entry(
     bd=0,
     bg="#FFFFFF",
     fg="#000716",
-    highlightthickness=0
+    highlightthickness=0,
+    textvariable=entry_var
 )
-entry_15.place(
+entrada_cof.place(
     x=224.0,
     y=128.0,
     width=30.0,
@@ -697,6 +740,7 @@ entry_bg_16 = canvas.create_image(
     527.5,
     image=entry_image_16
 )
+#ENTRADA COF RESPUESTA
 entry_16 = Entry(
     bd=0,
     bg="#FFFFFF",
@@ -717,11 +761,13 @@ entry_bg_17 = canvas.create_image(
     139.5,
     image=entry_image_17
 )
+#ENTRADA FIN TRANSMISOR
 entry_17 = Entry(
     bd=0,
     bg="#FFFFFF",
     fg="#000716",
-    highlightthickness=0
+    highlightthickness=0,
+    textvariable=entry_var_fin 
 )
 entry_17.place(
     x=265.0,
@@ -737,6 +783,7 @@ entry_bg_18 = canvas.create_image(
     527.5,
     image=entry_image_18
 )
+#ENTRADA FIN RESPUESTA
 entry_18 = Entry(
     bd=0,
     bg="#FFFFFF",
@@ -757,11 +804,14 @@ entry_bg_19 = canvas.create_image(
     139.5,
     image=entry_image_19
 )
+#ENTRADA SOL TRANSMISION
 entry_19 = Entry(
     bd=0,
     bg="#FFFFFF",
     fg="#000716",
-    highlightthickness=0
+    highlightthickness=0,
+    textvariable=entry_var_sol
+    
 )
 entry_19.place(
     x=306.0,
@@ -777,6 +827,8 @@ entry_bg_20 = canvas.create_image(
     527.5,
     image=entry_image_20
 )
+
+#ENTRADA SOL REPSUESTA
 entry_20 = Entry(
     bd=0,
     bg="#FFFFFF",
@@ -797,11 +849,13 @@ entry_bg_21 = canvas.create_image(
     139.5,
     image=entry_image_21
 )
+#ENTRADA CTR TRANSMISION
 entry_21 = Entry(
     bd=0,
     bg="#FFFFFF",
     fg="#000716",
-    highlightthickness=0
+    highlightthickness=0,
+    textvariable=entry_var_ctr
 )
 entry_21.place(
     x=347.0,
@@ -817,10 +871,11 @@ entry_bg_22 = canvas.create_image(
     527.5,
     image=entry_image_22
 )
+#ENTRADA CTR RESPUESTA
 entry_22 = Entry(
     bd=0,
     bg="#FFFFFF",
-    fg="#000716",
+    fg="#FFFFFF",
     highlightthickness=0
 )
 entry_22.place(
@@ -837,11 +892,13 @@ entry_bg_23 = canvas.create_image(
     139.5,
     image=entry_image_23
 )
+#ENTRADA PER TRANSMISION
 entry_23 = Entry(
     bd=0,
     bg="#FFFFFF",
     fg="#000716",
-    highlightthickness=0
+    highlightthickness=0,
+    textvariable=entry_var_per
 )
 entry_23.place(
     x=388.0,
@@ -857,6 +914,7 @@ entry_bg_24 = canvas.create_image(
     528.5,
     image=entry_image_24
 )
+#ENTRADA PER RESPUESTA
 entry_24 = Entry(
     bd=0,
     bg="#FFFFFF",
@@ -877,11 +935,13 @@ entry_bg_25 = canvas.create_image(
     139.5,
     image=entry_image_25
 )
+#ENTRADA NUM TRANSMISOR
 entry_25 = Entry(
     bd=0,
     bg="#FFFFFF",
     fg="#000716",
-    highlightthickness=0
+    highlightthickness=0,
+    textvariable=entry_var_num
 )
 entry_25.place(
     x=429.0,
@@ -917,28 +977,34 @@ entry_bg_27 = canvas.create_image(
     80.5,
     image=entry_image_27
 )
-entry_27 = Entry(
+
+#ENTRADA NUMERO DE FRAMES
+entrada_frames = tk.StringVar()
+
+entrada_num_frames = Entry(
     bd=0,
     bg="#FFFFFF",
     fg="#000716",
-    highlightthickness=0
+    highlightthickness=0,
+    textvariable=entrada_frames
 )
-entry_27.place(
+entrada_num_frames.place(
     x=780.0,
     y=69.0,
     width=36.0,
     height=21.0
 )
-
+#BOTON ENVIAR
 button_image_1 = PhotoImage(
     file=relative_to_assets("button_1.png"))
 button_1 = Button(
     image=button_image_1,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_1 clicked"),
+    command=lambda: btn_enviar(),
     relief="flat"
 )
+
 button_1.place(
     x=886.0,
     y=128.0,
@@ -952,7 +1018,7 @@ button_2 = Button(
     image=button_image_2,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_2 clicked"),
+    command=lambda: print("boton responder presionado"),
     relief="flat"
 )
 button_2.place(
@@ -964,11 +1030,13 @@ button_2.place(
 
 button_image_3 = PhotoImage(
     file=relative_to_assets("button_3.png"))
+
+#BOTON COF
 button_3 = Button(
     image=button_image_3,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_3 clicked"),
+    command=lambda:btn_cof(),
     relief="flat"
 )
 button_3.place(
@@ -978,13 +1046,14 @@ button_3.place(
     height=23.0
 )
 
+#BOTON FIN
 button_image_4 = PhotoImage(
     file=relative_to_assets("button_4.png"))
 button_4 = Button(
     image=button_image_4,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_4 clicked"),
+    command=lambda:btn_fin(),
     relief="flat"
 )
 button_4.place(
@@ -996,11 +1065,13 @@ button_4.place(
 
 button_image_5 = PhotoImage(
     file=relative_to_assets("button_5.png"))
+
+#BOTON SOL
 button_5 = Button(
     image=button_image_5,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_5 clicked"),
+    command=lambda:btn_sol(),
     relief="flat"
 )
 button_5.place(
@@ -1012,11 +1083,13 @@ button_5.place(
 
 button_image_6 = PhotoImage(
     file=relative_to_assets("button_6.png"))
+
+#BOTON CTR
 button_6 = Button(
     image=button_image_6,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_6 clicked"),
+    command=lambda:btn_ctr(),
     relief="flat"
 )
 button_6.place(
@@ -1032,7 +1105,7 @@ button_7 = Button(
     image=button_image_7,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_7 clicked"),
+    command=lambda:btn_per(),
     relief="flat"
 )
 button_7.place(
@@ -1048,7 +1121,7 @@ button_8 = Button(
     image=button_image_8,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_8 clicked"),
+    command=lambda: btn_num(),
     relief="flat"
 )
 button_8.place(
@@ -1077,5 +1150,162 @@ entry_28.place(
     width=284.0,
     height=739.0
 )
+#FUNCIONALIDADES BTN COF
+def btn_cof():
+    agg_eliminar_uno()
+    print("Boton COF presionado")
+    
+def agg_eliminar_uno():
+    contenido = entry_var.get()# Obtener el contenido del campo de texto
+    if contenido.isdigit():  # Verificar si el contenido es un número
+        entry_var.set('') #borrar numero
+    else:
+        entry_var.set('1')
+    
+#FUNCIONALIDADES BTN FIN
+def btn_fin():
+    agg_eliminar_uno_fin()
+    print("boton FIN presionado")
+    
+
+def agg_eliminar_uno_fin():
+    contenido = entry_var_fin.get()# Obtener el contenido del campo de texto
+    if contenido.isdigit():  # Verificar si el contenido es un número
+        entry_var_fin.set('') #borrar numero
+    else:
+        entry_var_fin.set('1')
+
+#FUNCIONALIDADES BTN SOL 
+def btn_sol():
+    agg_eliminar_uno_sol()
+    print("boton SOL presionado")
+    
+
+def agg_eliminar_uno_sol():
+    contenido = entry_var_sol.get()# Obtener el contenido del campo de texto
+    if contenido.isdigit():  # Verificar si el contenido es un número
+        entry_var_sol.set('') #borrar numero
+    else:
+        entry_var_sol.set('1')
+
+       
+#FUNCIONALIDADES BTN CRT
+def btn_ctr():
+    agg_eliminar_uno_ctr()
+    print("boton CTR presionado")
+    
+
+def agg_eliminar_uno_ctr():
+    contenido = entry_var_ctr.get()# Obtener el contenido del campo de texto
+    if contenido.isdigit():  # Verificar si el contenido es un número
+        entry_var_ctr.set('') #borrar numero
+    else:
+        entry_var_ctr.set('1')
+
+#FUNCIONALIDADES BTN PER
+
+def btn_per():
+    agg_eliminar_uno_per()
+    print("boton PER presionado")
+    
+
+def agg_eliminar_uno_per():
+    contenido = entry_var_per.get()# Obtener el contenido del campo de texto
+    if contenido.isdigit():  # Verificar si el contenido es un número
+        entry_var_per.set('') #borrar numero
+    else:
+        entry_var_per.set('1')
+
+#FUNCIONALIDADES BTN NUM
+
+def btn_num():
+    agg_eliminar_uno_num()
+    print("boton NUM presionado")
+    
+
+def agg_eliminar_uno_num():
+    contenido = entry_var_num.get()# Obtener el contenido del campo de texto
+    if contenido.isdigit():  # Verificar si el contenido es un número
+        entry_var_num.set('') #borrar numero
+    else:
+        entry_var_num.set('1')
+
+#FUNCIONALIDADES BOTON ENVIAR
+def btn_enviar():
+    leer_campo_mensaje()
+    leer_num_frames()
+    leer_campo_del_trans()
+    leer_campo_cof_trans()
+    leer_campo_fin_trans()
+    leer_campo_sol_trans()
+    leer_campo_ctr_trans()
+    leer_campo_per_trans()
+    leer_campo_num_trans()
+    leer_campo_data_trans()
+    leer_campo_del2_trans()
+    print("boton Enviar presionado")
+
+
+###########################SECCION TRANSMISOR#######################
+
+def leer_campo_mensaje():#campo de texto donde se escribe el mensaje
+    contenido = entrada_mensaje.get()
+    print(contenido)
+
+def leer_num_frames():#campo donde se ecriben la cantidad de frames
+    contenido = entrada_frames.get()
+    print(contenido)
+
+
+def leer_campo_del_trans():#campo de texto donde se escribe el delimitador-1 en transmisor
+    contenido = entrada_del_trans.get()
+    print(contenido)
+
+def leer_campo_data_trans():
+    contenido = entrada_data_transm.get()
+    print(contenido)
+    
+def leer_campo_del2_trans():#campo de texto donde se escribe el delimitador-2 en transmisor
+    contenido = entrada_del2_trans.get()
+    print(contenido)
+
+def leer_campo_cof_trans():#campo de texto donde se pone el numero COF
+    contenido = entry_var.get()
+    print(contenido)
+
+def leer_campo_fin_trans():#campo de texto donde se pone el numero FIN
+    contenido = entry_var_fin.get()
+    print(contenido)
+
+def leer_campo_sol_trans():#campo de texto donde se pone el numero SOL
+    contenido = entry_var_sol.get()
+    print(contenido)
+    
+def leer_campo_ctr_trans():#campo de texto donde se pone el numero CTR
+    contenido = entry_var_ctr.get()
+    print(contenido)
+    
+def leer_campo_per_trans():#campo de texto donde se pone el numero PER
+    contenido = entry_var_per.get()
+    print(contenido)
+
+def leer_campo_num_trans():#campo de texto donde se pone el numero NUM
+    contenido = entry_var_num.get()
+    print(contenido)
+
+###########################SECCION RECEPTOR#######################
+
+
+
+###########################SECCION RESPUESTA#######################
+
+
+
+###########################SECCION RESULTADO FINAL#######################
+
 window.resizable(False, False)
 window.mainloop()
+
+
+
+
