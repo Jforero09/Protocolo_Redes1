@@ -450,11 +450,14 @@ entry_bg_3 = canvas.create_image(
     image=entry_image_3
 )
 #ENTRADA DELIMITADOR RESPUESTA
+entrada_delim_respu=tk.StringVar()
+
 entrada_delim_resp = Entry(
     bd=0,
     bg="#FFFFFF",
     fg="#000716",
-    highlightthickness=0
+    highlightthickness=0,
+    textvariable=entrada_delim_respu
 )
 entrada_delim_resp.place(
     x=138.0,
@@ -472,11 +475,14 @@ entry_bg_4 = canvas.create_image(
 )
 
 # ENTRADA HEADER-2 RECEPTOR
+entrada_header2_recept=tk.StringVar()
+
 entrada_header2_recep = Entry(
     bd=0,
     bg="#FFFFFF",
     fg="#000716",
-    highlightthickness=0
+    highlightthickness=0,
+    textvariable=entrada_header2_recept
 )
 entrada_header2_recep.place(
     x=295.0,
@@ -493,11 +499,14 @@ entry_bg_5 = canvas.create_image(
     image=entry_image_5
 )
 #ENTRADA INFORMACION RECEPTOR
+entrada_info_recep=tk.StringVar()
+
 entrada_info_receptor = Entry(
     bd=0,
     bg="#FFFFFF",
     fg="#000716",
-    highlightthickness=0
+    highlightthickness=0,
+    textvariable=entrada_info_recep
 )
 entrada_info_receptor.place(
     x=523.0,
@@ -514,11 +523,14 @@ entry_bg_6 = canvas.create_image(
     image=entry_image_6
 )
 #ENTRADA TRAILER RECEPTOR
+entrada_trailer_recep=tk.StringVar()
+
 entrada_trailer_receptor = Entry(
     bd=0,
     bg="#FFFFFF",
     fg="#000716",
-    highlightthickness=0
+    highlightthickness=0,
+    textvariable=entrada_trailer_recep
 )
 entrada_trailer_receptor.place(
     x=751.0,
@@ -535,11 +547,14 @@ entry_bg_7 = canvas.create_image(
     image=entry_image_7
 )
 #ENTRADA HEADER-1 RECEPTOR
+entrada_header1_recept=tk.StringVar()
+
 entrada_header1_recep = Entry(
     bd=0,
     bg="#FFFFFF",
     fg="#000716",
-    highlightthickness=0
+    highlightthickness=0,
+    textvariable=entrada_header1_recept
 )
 entrada_header1_recep.place(
     x=67.0,
@@ -581,13 +596,16 @@ entry_bg_9 = canvas.create_image(
     image=entry_image_9
 )
 #ENTRADA DATA RESPUESTA
-entry_9 = Entry(
+entrada_data_respu=tk.StringVar()
+
+entrada_data_resp = Entry(
     bd=0,
     bg="#FFFFFF",
     fg="#000716",
-    highlightthickness=0
+    highlightthickness=0,
+    textvariable=entrada_data_respu
 )
-entry_9.place(
+entrada_data_resp.place(
     x=557.0,
     y=517.0,
     width=170.0,
@@ -602,13 +620,16 @@ entry_bg_10 = canvas.create_image(
     image=entry_image_10
 )
 #ENTRADA SEMANTICA SELLECIONADA
-entry_10 = Entry(
+entrada_sem_selecc=tk.StringVar()
+
+entrada_semantica_selecc = Entry(
     bd=0,
     bg="#FFFFFF",
     fg="#000716",
-    highlightthickness=0
+    highlightthickness=0,
+    textvariable=entrada_sem_selecc
 )
-entry_10.place(
+entrada_semantica_selecc.place(
     x=518.0,
     y=675.0,
     width=170.0,
@@ -623,13 +644,16 @@ entry_bg_11 = canvas.create_image(
     image=entry_image_11
 )
 #ENTRADA ESTADO
-entry_11 = Entry(
+entrada_msj_estado=tk.StringVar()
+
+entrada_msj_estad = Entry(
     bd=0,
     bg="#FFFFFF",
     fg="#000716",
-    highlightthickness=0
+    highlightthickness=0,
+    textvariable=entrada_msj_estado
 )
-entry_11.place(
+entrada_msj_estad.place(
     x=518.0,
     y=713.0,
     width=170.0,
@@ -644,13 +668,16 @@ entry_bg_12 = canvas.create_image(
     image=entry_image_12
 )
 #ENTRADA MENSAJE RECIBIDO
-entry_12 = Entry(
+entrada_msj_recibido=tk.StringVar()
+
+entrada_msj_recib = Entry(
     bd=0,
     bg="#FFFFFF",
     fg="#000716",
-    highlightthickness=0
+    highlightthickness=0,
+    textvariable=entrada_msj_recibido
 )
-entry_12.place(
+entrada_msj_recib.place(
     x=518.0,
     y=756.0,
     width=170.0,
@@ -689,13 +716,16 @@ entry_bg_14 = canvas.create_image(
     image=entry_image_14
 )
 #ENTRADA DELIMITADOR-2 RESPUESTA
-entry_14 = Entry(
+entrada_delim2_respu=tk.StringVar()
+
+entrada_delim2_resp = Entry(
     bd=0,
     bg="#FFFFFF",
     fg="#000716",
-    highlightthickness=0
+    highlightthickness=0,
+    textvariable=entrada_delim2_respu
 )
-entry_14.place(
+entrada_delim2_resp.place(
     x=737.0,
     y=516.0,
     width=170.0,
@@ -741,13 +771,16 @@ entry_bg_16 = canvas.create_image(
     image=entry_image_16
 )
 #ENTRADA COF RESPUESTA
-entry_16 = Entry(
+entrada_cof_respu = tk.StringVar()
+
+entrada_cof_resp = Entry(
     bd=0,
     bg="#FFFFFF",
     fg="#000716",
-    highlightthickness=0
+    highlightthickness=0,
+    textvariable=entrada_cof_respu
 )
-entry_16.place(
+entrada_cof_resp.place(
     x=317.0,
     y=516.0,
     width=30.0,
@@ -784,13 +817,16 @@ entry_bg_18 = canvas.create_image(
     image=entry_image_18
 )
 #ENTRADA FIN RESPUESTA
-entry_18 = Entry(
+entrada_fin_respu=tk.StringVar()
+
+entrada_fin_resp = Entry(
     bd=0,
     bg="#FFFFFF",
     fg="#000716",
-    highlightthickness=0
+    highlightthickness=0,
+    textvariable=entrada_fin_respu
 )
-entry_18.place(
+entrada_fin_resp.place(
     x=358.0,
     y=516.0,
     width=30.0,
@@ -828,14 +864,17 @@ entry_bg_20 = canvas.create_image(
     image=entry_image_20
 )
 
-#ENTRADA SOL REPSUESTA
-entry_20 = Entry(
+#ENTRADA SOL RESPUESTA
+entrada_sol_respu=tk.StringVar() 
+
+entrada_sol_resp = Entry(
     bd=0,
     bg="#FFFFFF",
     fg="#000716",
-    highlightthickness=0
+    highlightthickness=0,
+    textvariable=entrada_sol_respu
 )
-entry_20.place(
+entrada_sol_resp.place(
     x=398.0,
     y=516.0,
     width=30.0,
@@ -872,13 +911,16 @@ entry_bg_22 = canvas.create_image(
     image=entry_image_22
 )
 #ENTRADA CTR RESPUESTA
-entry_22 = Entry(
+entrada_ctr_respu=tk.StringVar()
+
+entrada_ctr_resp = Entry(
     bd=0,
     bg="#FFFFFF",
-    fg="#FFFFFF",
-    highlightthickness=0
+    fg="#000716",
+    highlightthickness=0,
+    textvariable=entrada_ctr_respu
 )
-entry_22.place(
+entrada_ctr_resp.place(
     x=437.0,
     y=516.0,
     width=30.0,
@@ -915,13 +957,16 @@ entry_bg_24 = canvas.create_image(
     image=entry_image_24
 )
 #ENTRADA PER RESPUESTA
-entry_24 = Entry(
+entrada_per_respu=tk.StringVar() 
+
+entrada_per_resp = Entry(
     bd=0,
     bg="#FFFFFF",
     fg="#000716",
-    highlightthickness=0
+    highlightthickness=0,
+    textvariable=entrada_per_respu
 )
-entry_24.place(
+entrada_per_resp.place(
     x=475.0,
     y=517.0,
     width=30.0,
@@ -936,14 +981,14 @@ entry_bg_25 = canvas.create_image(
     image=entry_image_25
 )
 #ENTRADA NUM TRANSMISOR
-entry_25 = Entry(
+entrada_num_trans = Entry(
     bd=0,
     bg="#FFFFFF",
     fg="#000716",
     highlightthickness=0,
     textvariable=entry_var_num
 )
-entry_25.place(
+entrada_num_trans.place(
     x=429.0,
     y=128.0,
     width=30.0,
@@ -957,13 +1002,18 @@ entry_bg_26 = canvas.create_image(
     527.5,
     image=entry_image_26
 )
-entry_26 = Entry(
+
+#ENTRADA NUM RESPUESTA
+entrada_num_respu=tk.StringVar()
+
+entrada_num_resp = Entry(
     bd=0,
     bg="#FFFFFF",
     fg="#000716",
-    highlightthickness=0
+    highlightthickness=0,
+    textvariable=entrada_num_respu
 )
-entry_26.place(
+entrada_num_resp.place(
     x=516.0,
     y=516.0,
     width=30.0,
@@ -1012,13 +1062,14 @@ button_1.place(
     height=23.0
 )
 
+#BOTON RESPONDER
 button_image_2 = PhotoImage(
     file=relative_to_assets("button_2.png"))
 button_2 = Button(
     image=button_image_2,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("boton responder presionado"),
+    command=lambda:btn_responder(),
     relief="flat"
 )
 button_2.place(
@@ -1098,7 +1149,7 @@ button_6.place(
     width=31.0,
     height=23.0
 )
-
+#BOTON PER
 button_image_7 = PhotoImage(
     file=relative_to_assets("button_7.png"))
 button_7 = Button(
@@ -1115,6 +1166,7 @@ button_7.place(
     height=23.0
 )
 
+#BOTON NUM
 button_image_8 = PhotoImage(
     file=relative_to_assets("button_8.png"))
 button_8 = Button(
@@ -1138,13 +1190,17 @@ entry_bg_28 = canvas.create_image(
     445.5,
     image=entry_image_28
 )
-entry_28 = Entry(
+#ENTRADA SECUENCIA DE TRAMAS
+entrada_sec_tramas=tk.StringVar()
+
+entrada_sec_tram = Entry(
     bd=0,
     bg="#FFFFFF",
     fg="#000716",
-    highlightthickness=0
+    highlightthickness=0,
+    textvariable=entrada_sec_tramas
 )
-entry_28.place(
+entrada_sec_tram.place(
     x=1058.0,
     y=75.0,
     width=284.0,
@@ -1230,11 +1286,11 @@ def agg_eliminar_uno_num():
     else:
         entry_var_num.set('1')
 
-#FUNCIONALIDADES BOTON ENVIAR
+###FUNCIONALIDADES BOTON ENVIAR###
 def btn_enviar():
     leer_campo_mensaje()
     leer_num_frames()
-    leer_campo_del_trans()
+    leer_campo_delim_trans()
     leer_campo_cof_trans()
     leer_campo_fin_trans()
     leer_campo_sol_trans()
@@ -1243,7 +1299,29 @@ def btn_enviar():
     leer_campo_num_trans()
     leer_campo_data_trans()
     leer_campo_del2_trans()
+    # leer_campo_head1_recep()
+    # leer_campo_head2_recep() #No deben leerse con el boton, unicamente para pruebas
+    #leer_campo_info_recep()
+    # leer_campo_trailer_recep()
     print("boton Enviar presionado")
+
+###FUNCIONALIDADES BOTON RESPONDER###
+def btn_responder():
+    leer_campo_delim_resp()
+    leer_campo_cof_resp()
+    leer_campo_fin_resp()
+    leer_campo_sol_resp()
+    leer_campo_ctr_resp()
+    leer_campo_per_resp()
+    leer_campo_num_resp()
+    leer_campo_data_resp()
+    leer_campo_delim2_resp()
+    mostar_msj_sec_tramas() # mensaje que se muestra en la seccion tramas
+    mostar_msj_recibido()# mensaje que se muestra en el campo mensaje recibido
+    mostar_msj_estado()#mensaje que muestra el estado del envio 
+    mostar_msj_sem_selecc()#mensaje que muestra la semantica seleccionada
+    print("boton Responder presionado")
+      
 
 
 ###########################SECCION TRANSMISOR#######################
@@ -1257,7 +1335,7 @@ def leer_num_frames():#campo donde se ecriben la cantidad de frames
     print(contenido)
 
 
-def leer_campo_del_trans():#campo de texto donde se escribe el delimitador-1 en transmisor
+def leer_campo_delim_trans():#campo de texto donde se escribe el delimitador-1 en transmisor
     contenido = entrada_del_trans.get()
     print(contenido)
 
@@ -1295,13 +1373,141 @@ def leer_campo_num_trans():#campo de texto donde se pone el numero NUM
 
 ###########################SECCION RECEPTOR#######################
 
+def leer_campo_head1_recep():
+    contenido=entrada_header1_recept.get()
+    print(contenido)
+  
+def leer_campo_head2_recep():
+    contenido=entrada_header2_recept.get()
+    print(contenido)
 
+def leer_campo_info_recep():
+    contenido=entrada_info_recep.get()
+    print(contenido)
+    
+def leer_campo_trailer_recep():
+    contenido=entrada_trailer_recep.get()
+    print(contenido)
 
 ###########################SECCION RESPUESTA#######################
 
+def leer_campo_delim_resp():
+    contenido=entrada_delim_respu.get()
+    print(contenido)
+    
+def leer_campo_cof_resp():
+    contenido=entrada_cof_respu.get()
+    print(contenido)
 
+def leer_campo_fin_resp():
+    contenido=entrada_fin_respu.get()
+    print(contenido)
 
+def leer_campo_sol_resp():
+    contenido=entrada_sol_respu.get()
+    print(contenido)
+
+def leer_campo_ctr_resp():
+    contenido=entrada_ctr_respu.get()
+    print(contenido)
+
+def leer_campo_per_resp():
+    contenido=entrada_per_respu.get()
+    print(contenido)
+
+def leer_campo_num_resp():
+    contenido=entrada_num_respu.get()
+    print(contenido)
+
+def leer_campo_data_resp():
+    contenido=entrada_data_respu.get()
+    print(contenido)
+
+def leer_campo_delim2_resp():
+    contenido=entrada_delim2_respu.get()
+    print(contenido)
+###########################SECCION RESPUESTA TRAMAS######################
+def mostar_msj_sec_tramas():
+    mensaje="Hola" #poner por variable a mostrar
+    contenido=entrada_sec_tramas.set(mensaje)
+    print(contenido)
 ###########################SECCION RESULTADO FINAL#######################
+
+def mostar_msj_sem_selecc():
+    numero='1'
+    cof=entry_var.get()
+    fin=entry_var_fin.get()
+    sol=entry_var_sol.get()
+    ctr=entry_var_ctr.get()
+    per=entry_var_per.get()
+    num=entry_var_num.get()
+    
+    if  cof == numero:
+        mensaje="COF" 
+        contenido=entrada_sem_selecc.set(mensaje)
+        return contenido
+    elif fin == numero:
+        mensaje="FIN" 
+        contenido=entrada_sem_selecc.set(mensaje)
+        return contenido
+    elif sol == numero:
+        mensaje="SOL" 
+        contenido=entrada_sem_selecc.set(mensaje)
+        return contenido
+    elif ctr == numero:
+        mensaje="CTR" 
+        contenido=entrada_sem_selecc.set(mensaje)
+        return contenido
+    elif per == numero:
+        mensaje="PER" 
+        contenido=entrada_sem_selecc.set(mensaje)
+        return contenido
+    elif num == numero:
+        mensaje="NUM" 
+        contenido=entrada_sem_selecc.set(mensaje)
+        return contenido
+    
+        
+        
+        
+        
+    
+    
+    
+    
+    
+
+
+def mostar_msj_estado():
+    
+    # ESPERAR CONDICION
+    # if:
+    # mensaje="Exitoso" #poner por variable a mostrar
+    # contenido=entrada_msj_estado.set(mensaje)
+
+        
+    # else
+    # mensaje="Fallido" #poner por variable a mostrar
+    # contenido=entrada_msj_estado.set(mensaje)
+    
+    mensaje="Exitoso" #poner por variable a mostrar
+    contenido=entrada_msj_estado.set(mensaje)
+    print(contenido)
+
+def mostar_msj_recibido():
+    mensaje="zaramambiche" #poner por variable a mostrar
+    contenido=entrada_msj_recibido.set(mensaje)
+    print(contenido)
+
+
+
+entrada_sem_selecc
+
+
+
+
+
+
 
 window.resizable(False, False)
 window.mainloop()
